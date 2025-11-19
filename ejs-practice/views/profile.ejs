@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= user.name %> - Profil</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      color: #333;
+      padding: 40px;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    h1 { color: #2c3e50; margin-bottom: 20px; }
+    p { font-size: 1.2em; margin: 15px 0; }
+    ul { list-style: none; padding: 0; }
+    li {
+      background: #3498db;
+      color: white;
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 20px;
+      border-radius: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Profil de <%= user.name %></h1>
+    <p><strong>Âge :</strong> <%= user.age %> ans</p>
+    <p><strong>Profession :</strong> <%= user.occupation %></p>
+    
+    <h3>Loisirs :</h3>
+    <ul>
+      <% user.hobbies.forEach(hobby => { %>
+        <li><%= hobby %></li>
+      <% }); %>
+    </ul>
+
+    <br>
+    <a href="/" style="color:#3498db; text-decoration:none;">← Retour accueil</a>
+  </div>
+</body>
+</html>

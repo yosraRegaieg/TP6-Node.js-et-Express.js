@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenue, yosra!</h1>
+    <nav>
+      <a href="/">Accueil</a> |
+      <a href="/tasks">Tâches (<%= tasks.length %>)</a> |
+      <a href="/about">À propos</a> |
+      <a href="/contact">Contact</a>
+    </nav>
+    <p>Vous avez <%= tasks.filter(t => !t.done).length %> tâche(s) en cours.</p>
+  </div>
+</body>
+</html>

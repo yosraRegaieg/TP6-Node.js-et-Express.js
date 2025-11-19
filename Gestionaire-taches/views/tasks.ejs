@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tâches</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/">Accueil</a> | <a href="/about">À propos</a> | <a href="/contact">Contact</a>
+    </nav>
+    <h1>Liste des tâches (<%= tasks.length %> au total)</h1>
+    <p><strong><%= tasks.filter(t => !t.done).length %></strong> en cours – 
+       <strong><%= tasks.filter(t => t.done).length %></strong> terminées</p>
+
+    <form action="/api/tasks" method="POST">
+      <input type="text" name="title" placeholder="Nouvelle tâche..." required autofocus>
+      <button type="submit">Ajouter</button>
+    </form>
+
+    <ul>
+      <% tasks.forEach(task => { %>
+        <li class="<%= task.done ? 'done' : '' %>"><%= task.title %></li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>

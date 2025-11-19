@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tâches</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Liste des tâches</h1>
+    <nav><a href="/">← Accueil</a></nav>
+
+    <form action="/api/tasks" method="POST">
+      <input type="text" name="title" placeholder="Nouvelle tâche..." required>
+      <button type="submit">Ajouter</button>
+    </form>
+
+    <ul>
+      <% if (tasks.length === 0) { %>
+        <li>Aucune tâche pour le moment !</li>
+      <% } else { %>
+        <% tasks.forEach(task => { %>
+          <li class="<%= task.done ? 'done' : '' %>">
+            <%= task.title %>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+  </div>
+</body>
+</html>
